@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica', Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(296.81deg, #F4E1D6 -47.61%, #F36F20 50%);
+}
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 35px 0 0 43px;
+}
+
+.logo {
+  height: 66px;
+  margin-bottom: -30px;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-box {
+  width: 85%;
+  height: 81%;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.Jibang-img-1 {
+  position: absolute;
+  top: -70px;  
+  right: 30px; 
+  width: 150px;
+  height: auto;
+}
+
+
+
+/* order-box */
+
+.order-box {
+  position: absolute;
+  left: 20px;
+  width: 250px;
+  height: 92%;
+  background-color: #FFF3EB;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 75px;
+  padding-left: 33px;
+}
+
+.order-item {
+  display: grid;
+  grid-template-columns: 40px auto;
+  align-items: center;
+  gap: 12px; /* 숫자 동그라미와 텍스트 사이 간격 */
+  position: relative;
+  padding-bottom: 16px;
+  margin-bottom: 90px;
+  max-width: 100%;
+}
+
+.circle-1, .circle-2, .circle-3 {
+  width: 40px;
+  height: 40px;
+  color: #777777;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  background: rgba(138, 138, 138, 0.2);
+}
+
+.circle-1 {
+  border: 3px solid #F36F20;
+}
+
+.text-1 {
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-2 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #777777;
+}
+
+.text-3 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #777777;
+}
+
+.order-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  top: 45px;
+  width: 3px;
+  height: 90px;
+  background-color: #777777;
+  opacity: 20%;
+  border-radius: 2px;
+}
