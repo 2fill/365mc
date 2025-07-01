@@ -7,10 +7,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>365mc CDSS</title>
+        <link rel="icon" href="/favicon.ico?v=2" />
       </head>
       <body>
         <header className="header">
-          <img src="/logo.png" alt="Logo" className="logo" />
+          <img src="/Logo.png" alt="Logo" className="logo" />
         </header>
         <main className="main-wrapper">
           {children}
