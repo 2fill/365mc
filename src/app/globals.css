@@ -63,7 +63,7 @@ body {
 .order-box {
   position: absolute;
   left: 20px;
-  width: 250px;
+  width: 270px;
   height: 92%;
   background-color: #FFF3EB;
   border-top-left-radius: 20px;
@@ -86,7 +86,9 @@ body {
   max-width: 100%;
 }
 
-.circle-1, .circle-2, .circle-3 {
+.circle-1,
+.circle-2,
+.circle-3 {
   width: 40px;
   height: 40px;
   color: #777777;
@@ -95,6 +97,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 22px;
+  font-weight: 100;
   flex-shrink: 0;
   background: rgba(138, 138, 138, 0.2);
 }
@@ -104,19 +107,14 @@ body {
 }
 
 .text-1 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.7);
 }
 
-.text-2 {
-  font-weight: 700;
-  font-size: 18px;
-  color: #777777;
-}
-
+.text-2,
 .text-3 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 18px;
   color: #777777;
 }
@@ -132,4 +130,53 @@ body {
   background-color: #777777;
   opacity: 20%;
   border-radius: 2px;
+}
+
+
+
+/* sex-box */
+
+.sex-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 30px;
+  margin-left: -20%;
+}
+
+.sex-label {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.sex-button {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.sex-button-1,
+.sex-button-2 {
+  width: 110px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 100;
+  background-color: #E9E3E0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sex-button-1:hover,
+.sex-button-2:hover {
+  background-color: #F36F20;
+  color: white;
+}
+
+.selected{
+  background-color: #F36F20 !important;
+  color: white !important;
 }
