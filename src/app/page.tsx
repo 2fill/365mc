@@ -75,7 +75,35 @@ export default function Page() {
           <div className="age-box">
             <div className="age-label">Age</div>
             <div className="age-controls">
-              <div className="age-textBox">{age}</div>
+            <input
+              type="number"
+              // 포커스 여부에 따라 클래스 이름 변경
+              className={`age-textBox ${age !== null ? "focused" : ""}`}
+              // input 창에 표시될 값 
+              value={age !== null ? age.toString() : ""}
+              onChange={(e) => {
+                let value = e.target.value;
+                
+                // 최대 3자리
+                if (value.length > 3) {
+                  value = value.slice(0, 3);
+                }
+                
+                // 0으로 시작하면, 0 제거
+                if (value.startsWith("0")) {
+                  value = value.replace(/^0+/, "");
+                }
+                
+                // 문자를 숫자로 다시 변경 
+                const num = parseInt(value);
+                // 숫자 유효하면 저장 
+                setAge(isNaN(num) ? null : num);
+              }}
+
+              onFocus={() => {
+                if (age === null) setAge(0);
+              }}
+            />
               <button className="plus-button" onClick={increment}>+</button>
               <button className="minus-button" onClick={decrement}>-</button>
             </div>

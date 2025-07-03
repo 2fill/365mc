@@ -188,11 +188,24 @@ body {
 .age-textBox {
   justify-content: flex-start;
   padding-left: 20px;
+  outline: none;
+}
+
+  /* input의 기본 기능 제거 */
+.age-textBox::-webkit-inner-spin-button,
+.age-textBox::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.age-textBox.focused,
+.age-textBox:focus {
+  background-color: #F36F20;
+  color: white;
 }
 
 .sex-button-1:hover,
 .sex-button-2:hover,
-.age-textBox:hover,
 .plus-button:hover,
 .minus-button:hover {
   background-color: #F36F20;
