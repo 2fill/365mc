@@ -152,7 +152,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 30px;
 }
 
 .sex-label,
@@ -203,6 +202,16 @@ body {
 .selected{
   background-color: #F36F20 !important;
   color: white !important;
+}
+
+
+
+/* 구분선 */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #E9E3E0;
+  margin: 35px 0;
 }
 
 

@@ -69,6 +69,9 @@ export default function Page() {
             </div>
           </div>
 
+          {/* 구분선 */}
+          <div className="divider"></div>
+
           <div className="age-box">
             <div className="age-label">Age</div>
             <div className="age-controls">
