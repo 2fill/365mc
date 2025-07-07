@@ -251,3 +251,31 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+
+
+/* next-button-container */
+
+.next-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 460px;
+  padding-left: 80%;
+}
+
+.next-button {
+  background-color: #F36F20;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  font-size: 18px;
+  width: 110px;
+  height: 40px;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.next-button:hover {
+  background-color: #d85e1b;
+}

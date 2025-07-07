@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter();
+
   const [selected, setSelected] = useState<"male" | "female" | null>(null);
   const [age, setAge] = useState<number | null>(null);
 
@@ -26,6 +29,15 @@ export default function Page() {
       return prev - 1;
     });
   };
+
+  const handleNextClick = () => {
+    if(selected && age !== null && age > 0){
+      router.push("/lipoInfo");
+    }
+    else{
+      alert("Please fill in the required fields.");
+    }
+  }
 
   return (
     <div className="main">
@@ -108,6 +120,10 @@ export default function Page() {
               <button className="minus-button" onClick={decrement}>-</button>
             </div>
           </div>
+        </div>
+
+        <div className="next-button-container">
+          <button className="next-button" onClick={handleNextClick}>Next</button>
         </div>
 
       </div>
