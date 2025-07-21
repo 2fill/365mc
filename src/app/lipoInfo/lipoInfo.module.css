@@ -86,7 +86,20 @@
     max-width: 100%;
 }
 
-.circle-1,
+.circle-1 {
+    width: 40px;
+    height: 40px;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    background: #F36F20;
+}
+
+
 .circle-2,
 .circle-3 {
     width: 40px;
@@ -106,13 +119,13 @@
     border: 3px solid #F36F20;
 }
 
+.text-1,
 .text-2 {
     font-weight: 600;
     font-size: 18px;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.text-1,
 .text-3 {
     font-weight: 600;
     font-size: 18px;
@@ -128,8 +141,13 @@
     width: 3px;
     height: 90px;
     background-color: #777777;
-    opacity: 20%;
+    opacity: 0.2;
     border-radius: 2px;
+}
+
+.order-item:first-child::after {
+    background-color: #F36F20;
+    opacity: 1;
 }
 
 
@@ -145,23 +163,31 @@
 
 
 
-/* type-box */
+/* type-box & site-box */
 
 .type-box,
-.size-box {
+.site-box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .type-label,
-.size-label {
+.site-label {
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 10px;
 }
 
-.type-button {
+.site-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px 15px;
+    width: 100%;
+}
+
+.type-button,
+.site-button {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -169,7 +195,7 @@
 
 .type-button-1,
 .type-button-2,
-.size-textBox {
+.site-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,34 +211,15 @@
     color: rgba(0, 0, 0, 0.7);
 }
 
-.size-textBox {
-    justify-content: flex-start;
-    padding-left: 20px;
-    outline: none;
-}
-
-/* input의 기본 기능 제거 */
-.size-textBox::-webkit-inner-spin-button,
-.size-textBox::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.size-textBox.focused,
-.size-textBox:focus {
-    background-color: #F36F20;
-    color: white;
-}
-
 .type-button-1:hover,
 .type-button-2:hover,
-.plus-button:hover,
-.minus-button:hover {
+.site-button:hover {
     background-color: #F36F20;
     color: white;
 }
 
-.selected{
+.selectedType,
+.selectedSite {
     background-color: #F36F20 !important;
     color: white !important;
 }
@@ -228,29 +235,6 @@
 }
 
 
-
-/* age-box */
-
-.size-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.plus-button,
-.minus-button {
-    width: 30px;
-    height: 30px;
-    background-color: #E9E3E0;
-    color: rgba(0, 0, 0, 0.7);
-    border: none;
-    font-size: 16px;
-    font-weight: 100;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 
 
