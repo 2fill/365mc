@@ -1,0 +1,360 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', Arial, sans-serif;
+} */
+
+/* html, body {
+    height: 100%;
+} */
+
+/* body {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(296.81deg, #F4E1D6 -47.61%, #F36F20 50%);
+} */
+
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 35px 0 0 43px;
+}
+
+.logo {
+    height: 66px;
+    margin-bottom: -30px;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-box {
+    width: 85%;
+    height: 81%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.Jibang-img-1 {
+    position: absolute;
+    top: -70px;  
+    right: 30px; 
+    width: 150px;
+    height: auto;
+}
+
+
+
+/* order-box */
+
+.order-box {
+    position: absolute;
+    left: 20px;
+    width: 270px;
+    height: 92%;
+    background-color: #FFF3EB;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 75px;
+    padding-left: 33px;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 40px auto;
+    align-items: center;
+    gap: 12px; /* 숫자 동그라미와 텍스트 사이 간격 */
+    position: relative;
+    padding-bottom: 16px;
+    margin-bottom: 90px;
+    max-width: 100%;
+}
+
+.circle-1 {
+    width: 40px;
+    height: 40px;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    background: #F36F20;
+}
+
+
+.circle-2,
+.circle-3 {
+    width: 40px;
+    height: 40px;
+    color: #777777;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 100;
+    flex-shrink: 0;
+    background: rgba(138, 138, 138, 0.2);
+}
+
+.circle-2 {
+    border: 3px solid #F36F20;
+}
+
+.text-1,
+.text-2 {
+    font-weight: 600;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.text-3 {
+    font-weight: 600;
+    font-size: 18px;
+    color: #777777;
+}
+
+.order-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    top: 45px;
+    width: 3px;
+    height: 90px;
+    background-color: #777777;
+    opacity: 0.2;
+    border-radius: 2px;
+}
+
+.order-item:first-child::after {
+    background-color: #F36F20;
+    opacity: 1;
+}
+
+
+
+/* form-box */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 350px;
+}
+
+
+
+/* type-box & site-box */
+
+.type-box,
+.site-box,
+.edema-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.type-label,
+.site-label,
+.edema-label {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.site-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px 15px;
+    width: 100%;
+}
+
+.type-button,
+.site-button,
+.edema-button {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.type-button-1,
+.type-button-2,
+.site-button,
+.edema-button-1,
+.edema-button-2,
+.edema-button-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 100;
+    background-color: #E9E3E0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.type-button-1,
+.type-button-2,
+.site-button,
+.edema-button-1,
+.edema-button-2 {
+    width: 110px;
+}
+
+.edema-button-3 {
+    width: 220px;
+}
+
+.type-button-1:hover,
+.type-button-2:hover,
+.site-button:hover,
+.edema-button-1:hover {
+    background-color: #F36F20;
+    color: white;
+}
+
+.selectedType,
+.selectedSite,
+.selectedEdema {
+    background-color: #F36F20 !important;
+    color: white !important;
+}
+
+
+
+/* 구분선 */
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #E9E3E0;
+    margin: 20px 0;
+}
+
+
+
+
+
+/* text-box container */
+.textbox-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-label {
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.input-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-textBox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 110px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 100;
+    background-color: #E9E3E0;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    padding-left: 20px;
+    outline: none;
+}
+
+.input-textBox::-webkit-inner-spin-button,
+.input-textBox::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-textBox.focused{
+    background-color: #F36F20 !important;
+    color: white !important;
+}
+
+.plus-button,
+.minus-button {
+    width: 30px;
+    height: 30px;
+    background-color: #E9E3E0;
+    color: rgba(0, 0, 0, 0.7);
+    border: none;
+    font-size: 16px;
+    font-weight: 100;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus-button:hover,
+.minus-button:hover {
+    background-color: #F36F20;
+    color: white;
+}
+
+
+
+
+
+/* next-button-container */
+
+.next-button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 460px;
+    padding-left: 80%;
+}
+
+.next-button {
+    background-color: #F36F20;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 18px;
+    width: 110px;
+    height: 40px;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.next-button:hover {
+    background-color: #d85e1b;
+}

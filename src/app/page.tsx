@@ -32,7 +32,7 @@ export default function Page() {
 
   const handleNextClick = () => {
     if(selected && age !== null && age > 0){
-      router.push("/lipoInfo");
+      router.push("/LipoInfo");
     }
     else{
       alert("Please fill in the required fields.");

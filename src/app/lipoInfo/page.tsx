@@ -30,6 +30,15 @@ export default function Page() {
     const [preopSize, setPreopSize] = useState<number | null>(null);
     const [fatVolume, setFatVolume] = useState<number | null>(null);
 
+    const handleNextClick = () => {
+        if(selectedEdema){
+            router.push("/BodyComp");
+        }
+        else{
+            alert("Please fill in the required fields.");
+        }
+    }
+
     return (
         <div className={styles.main}>
             <div className={styles['main-box']}>
@@ -177,11 +186,10 @@ export default function Page() {
                 </div>
 
                 <div className={styles['next-button-container']}>
-                    <button className={styles['next-button']}>
+                    <button className={styles['next-button']} onClick={handleNextClick}>
                         Next
                     </button>
                 </div>
-
             </div>
         </div>
     );

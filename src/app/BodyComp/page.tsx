@@ -2,131 +2,153 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from './bodyComp.module.css';
+
+const edemaOptions = [
+    { label: 'No edema', className: 'edema-button-1' },
+    { label: 'Mild edema', className: 'edema-button-2' },
+    { label: 'Moderate to severe edema', className: 'edema-button-3' },
+] as const;
+type EdemaType = typeof edemaOptions[number]['label'] | null;
 
 export default function Page() {
     const router = useRouter();
 
-    const [selected, setSelected] = useState<"male" | "female" | null>(null);
-    const [age, setAge] = useState<number | null>(null);
+    const [selectedType, setSelectedType] = useState<"Lams" | "Surgery" | null>(null);
+    const [selectedSite, setSelectedSite] = useState<string | null>(null);
+    const [selectedEdema, setSelectedEdema] = useState<EdemaType>(null);
 
-    const handleClick = (gender: "male" | "female") => {
-        if(selected === gender){
-        setSelected(null);
+    const handleClick = (gender: "Lams" | "Surgery") => {
+        if(selectedType === gender){
+            setSelectedType(null);
         }
         else {
-        setSelected(gender);
+            setSelectedType(gender);
         }
     };
 
-    const increment = () => {
-        setAge((prev) => (prev === null ? 1 : prev + 1));
-    };
-
-    const decrement = () => {
-        setAge((prev) => {
-        if(prev === null) return 0;
-        if (prev <= 0) return 0;
-        return prev - 1;
-        });
-    };
+    const [preopSize, setPreopSize] = useState<number | null>(null);
+    const [fatVolume, setFatVolume] = useState<number | null>(null);
 
     const handleNextClick = () => {
-        if(selected && age !== null && age > 0){
-        router.push("/lipoInfo");
+        if(selectedEdema){
+            router.push("/bodyComp");
         }
         else{
-        alert("Please fill in the required fields.");
+            alert("Please fill in the required fields.");
         }
     }
 
     return (
-        <div className="main">
-        <div className="main-box">
-            <img src="/Jibang-1.png" alt="Jibang1" className="Jibang-img-1" />
+        <div className={styles.main}>
+            <div className={styles['main-box']}>
+                <img src="/Jibang-1.png" alt="Jibang1" className={styles['Jibang-img-1']} />
 
-            <div className="order-box">
-            <div className="order-item">
-                <div className="circle-1">1</div>
-                <div className="text-1">Demographics</div>
-            </div>
-            <div className="order-item">
-                <div className="circle-2">2</div>
-                <div className="text-2">
-                Liposuction<br />
-                Information</div>
-            </div>
-            <div className="order-item">
-                <div className="circle-3">3</div>
-                <div className="text-3">
-                Body<br />
-                composition
+                <div className={styles['order-box']}>
+                <div className={styles['order-item']}>
+                    <div className={styles['circle-1']}>✔</div>
+                    <div className={styles['text-1']}>Demographics</div>
+                </div>
+                <div className={styles['order-item']}>
+                    <div className={styles['circle-2']}>2</div>
+                    <div className={styles['text-2']}>
+                    Liposuction<br />
+                    Information</div>
+                </div>
+                <div className={styles['order-item']}>
+                    <div className={styles['circle-3']}>3</div>
+                    <div className={styles['text-3']}>
+                    Body<br />
+                    composition
+                    </div>
+                </div>
+                </div>
+
+                <div className={styles['form-box']}>
+
+                    {/* Liposuction type */}
+                    <div className={styles['type-box']}>
+                        <div className={styles['type-label']}>Liposuction Type</div>
+                        <div className={styles['type-button']}>
+                            <button
+                                className={`${styles['type-button-1']} ${selectedType === "Lams" ? styles.selectedType : ""}`}
+                                onClick={() => handleClick("Lams")}>
+                                Lams
+                            </button>
+                            <button
+                                className={`${styles['type-button-2']} ${selectedType === "Surgery" ? styles.selectedType : ""}`}
+                                onClick={() => handleClick("Surgery")}>
+                                Surgery
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* 구분선 */}
+                    <div className={styles.divider}></div>
+
+                    {/* Liposuction site */}
+                    <div className={styles['site-box']}>
+                        <div className={styles['site-label']}>Liposuction Site</div>
+                        <div className={styles['site-buttons']}>
+                            {['Abdomen', 'Arms', 'Backs', 'Buttocks', 'Calves', 'Flanks', 'Thighs'].map((site) => (
+                                <button
+                                    key={site}
+                                    className={`${styles['site-button']} ${selectedSite === site ? styles['selectedSite'] : ''}`}
+                                    onClick={() => {
+                                        if(selectedSite === site){
+                                            setSelectedSite(null);
+                                        }
+                                        else {
+                                            setSelectedSite(site);
+                                        }
+                                    }}
+                                >
+                                    {site}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    {/* 구분선 */}
+                    <div className={styles.divider}></div>
+
+                    <div className={styles['textbox-container']}>
+
+                        {/* Preoperative Size */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Preoperative size</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${preopSize !== null && preopSize !== 0 ? styles.focused : ''}`}
+                                    value={preopSize !== null ? preopSize.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setPreopSize(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(preopSize === null) setPreopSize(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setPreopSize(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setPreopSize(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 구분선 */}
+                    <div className={styles.divider}></div>
+                </div>
+
+                <div className={styles['next-button-container']}>
+                    <button className={styles['next-button']}>
+                        Next
+                    </button>
                 </div>
             </div>
-            </div>
-
-            <div className="form-box">
-            <div className="sex-box">
-                <div className="sex-label">Sex</div>
-                <div className="sex-button">
-                <button
-                    className={`sex-button-1 ${selected === "male" ? "selected" : ""}`}
-                    onClick={() => handleClick("male")}>
-                    Male
-                </button>
-                <button
-                    className={`sex-button-2 ${selected === "female" ? "selected" : ""}`}
-                    onClick={() => handleClick("female")}>
-                    Female
-                </button>
-                </div>
-            </div>
-
-            {/* 구분선 */}
-            <div className="divider"></div>
-
-            <div className="age-box">
-                <div className="age-label">Age</div>
-                <div className="age-controls">
-                <input
-                type="number"
-                // 포커스 여부에 따라 클래스 이름 변경
-                className={`age-textBox ${age !== null ? "focused" : ""}`}
-                // input 창에 표시될 값 
-                value={age !== null ? age.toString() : ""}
-                onChange={(e) => {
-                    let value = e.target.value;
-                    
-                    // 최대 3자리
-                    if (value.length > 3) {
-                    value = value.slice(0, 3);
-                    }
-                    
-                    // 0으로 시작하면, 0 제거
-                    if (value.startsWith("0")) {
-                    value = value.replace(/^0+/, "");
-                    }
-                    
-                    // 문자를 숫자로 다시 변경 
-                    const num = parseInt(value);
-                    // 숫자 유효하면 저장 
-                    setAge(isNaN(num) ? null : num);
-                }}
-
-                onFocus={() => {
-                    if (age === null) setAge(0);
-                }}
-                />
-                <button className="plus-button" onClick={increment}>+</button>
-                <button className="minus-button" onClick={decrement}>-</button>
-                </div>
-            </div>
-            </div>
-
-            <div className="next-button-container">
-            <button className="next-button" onClick={handleNextClick}>Next</button>
-            </div>
-
-        </div>
         </div>
     );
 }
