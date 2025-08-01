@@ -19,6 +19,9 @@ export default function Page() {
         }
     };
 
+    const [preopSize, setPreopSize] = useState<number | null>(null);
+    const [fatVolume, setFatVolume] = useState<number | null>(null);
+
     return (
         <div className={styles.main}>
             <div className={styles['main-box']}>
@@ -85,11 +88,63 @@ export default function Page() {
                             ))}
                         </div>
                     </div>
+
+                    <div className={styles.divider}></div>
+
+                    <div className={styles['textbox-container']}>
+                        {/* Preoperative Size */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Preoperative size</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={styles['input-textBox']}
+                                    value={preopSize !== null ? preopSize.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setPreopSize(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(preopSize === null) setPreopSize(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setPreopSize(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setPreopSize(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+
+                        {/* Fat Volume */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Fat volume</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={styles['input-textBox']}
+                                    value={fatVolume !== null ? fatVolume.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setFatVolume(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(fatVolume === null) setFatVolume(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setFatVolume(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setPreopSize(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className={styles['next-button-container']}>
-                    <button className="next-button">
-                    Next
+                    <button className={styles['next-button']}>
+                        Next
                     </button>
                 </div>
 

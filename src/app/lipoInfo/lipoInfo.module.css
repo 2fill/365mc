@@ -157,7 +157,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 160px;
+    top: 80px;
     left: 350px;
 }
 
@@ -231,7 +231,77 @@
     width: 100%;
     height: 1px;
     background-color: #E9E3E0;
-    margin: 35px 0;
+    margin: 20px 0;
+}
+
+
+
+
+
+/* text-box container */
+.textbox-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-label {
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.input-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-textBox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 110px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 100;
+    background-color: #E9E3E0;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    padding-left: 20px;
+    outline: none;
+}
+
+.input-textBox::-webkit-inner-spin-button,
+.input-textBox::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-textBox:focus {
+    background-color: #F36F20;
+    color: white;
+}
+
+.plus-button,
+.minus-button {
+    width: 30px;
+    height: 30px;
+    background-color: #E9E3E0;
+    color: rgba(0, 0, 0, 0.7);
+    border: none;
+    font-size: 16px;
+    font-weight: 100;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
