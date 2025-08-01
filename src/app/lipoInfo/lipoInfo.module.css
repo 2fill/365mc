@@ -157,7 +157,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 80px;
+    top: 70px;
     left: 350px;
 }
 
@@ -166,14 +166,16 @@
 /* type-box & site-box */
 
 .type-box,
-.site-box {
+.site-box,
+.edema-box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .type-label,
-.site-label {
+.site-label,
+.edema-label {
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 10px;
@@ -187,7 +189,8 @@
 }
 
 .type-button,
-.site-button {
+.site-button,
+.edema-button {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -195,11 +198,13 @@
 
 .type-button-1,
 .type-button-2,
-.site-button {
+.site-button,
+.edema-button-1,
+.edema-button-2,
+.edema-button-3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 110px;
     height: 30px;
     border-radius: 20px;
     border: none;
@@ -211,15 +216,29 @@
     color: rgba(0, 0, 0, 0.7);
 }
 
+.type-button-1,
+.type-button-2,
+.site-button,
+.edema-button-1,
+.edema-button-2 {
+    width: 110px;
+}
+
+.edema-button-3 {
+    width: 220px;
+}
+
 .type-button-1:hover,
 .type-button-2:hover,
-.site-button:hover {
+.site-button:hover,
+.edema-button-1:hover {
     background-color: #F36F20;
     color: white;
 }
 
 .selectedType,
-.selectedSite {
+.selectedSite,
+.selectedEdema {
     background-color: #F36F20 !important;
     color: white !important;
 }
@@ -284,9 +303,9 @@
     margin: 0;
 }
 
-.input-textBox:focus {
-    background-color: #F36F20;
-    color: white;
+.input-textBox.focused{
+    background-color: #F36F20 !important;
+    color: white !important;
 }
 
 .plus-button,
@@ -302,6 +321,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.plus-button:hover,
+.minus-button:hover {
+    background-color: #F36F20;
+    color: white;
 }
 
 
