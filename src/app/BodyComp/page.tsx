@@ -143,9 +143,14 @@ export default function Page() {
                     <div className={styles.divider}></div>
                 </div>
 
-                <div className={styles['next-button-container']}>
-                    <button className={styles['next-button']}>
-                        Next
+                <div className={styles['page-button-container']}>
+                    <button
+                        className={styles['back-button']}
+                        onClick={() => router.push('/')}>
+                        Back
+                    </button>
+                    <button className={styles['complete-button']}>
+                        Complete
                     </button>
                 </div>
             </div>
