@@ -50,7 +50,7 @@ export default function Page() {
                     <div className={styles['text-1']}>Demographics</div>
                 </div>
                 <div className={styles['order-item']}>
-                    <div className={styles['circle-2']}>2</div>
+                    <div className={styles['circle-2']}>✔</div>
                     <div className={styles['text-2']}>
                     Liposuction<br />
                     Information</div>
