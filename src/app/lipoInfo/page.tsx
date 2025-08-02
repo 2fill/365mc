@@ -185,8 +185,15 @@ export default function Page() {
                     </div>
                 </div>
 
-                <div className={styles['next-button-container']}>
-                    <button className={styles['next-button']} onClick={handleNextClick}>
+                <div className={styles['page-button-container']}>
+                    <button
+                        className={styles['back-button']}
+                        onClick={() => router.push('/')}>
+                        Back
+                    </button>
+                    <button
+                        className={styles['next-button']}
+                        onClick={handleNextClick}>
                         Next
                     </button>
                 </div>
