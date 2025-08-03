@@ -17,6 +17,13 @@ export default function Page() {
     const [height, setHeight] = useState<number | null>(null);
     const [weight, setWeight] = useState<number | null>(null);
     const [bmi, setBmi] = useState<number | null>(null);
+    const [smm, setSMM] = useState<number | null>(null);
+    const [bfm, setBFM] = useState<number | null>(null);
+    const [tbw, setTBW] = useState<number | null>(null);
+    const [ffm, setFFM] = useState<number | null>(null);
+    const [protein, setProtein] = useState<number | null>(null);
+    const [mineral, setMineral] = useState<number | null>(null);
+    const [whr, setWHR] = useState<number | null>(null);
 
     useEffect(() => {
         if (height && weight) {
@@ -118,9 +125,203 @@ export default function Page() {
                             </div>
                         </div>
                     </div>
+                    
+                    {/* 구분선 */}
+                    <div className={styles.divider}></div>
+
+
+
+
+
+                    <div className={styles['second-container']}>
+
+                        {/* SMM */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Skeletal muscle mass</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${smm !== null && smm !== 0 ? styles.focused : ''}`}
+                                    value={smm !== null ? smm.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setSMM(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(smm === null) setSMM(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setSMM(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setSMM(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+
+                        {/* BFM */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Body fat mass</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${bfm !== null && bfm !== 0 ? styles.focused : ''}`}
+                                    value={bfm !== null ? bfm.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setBFM(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(bfm === null) setBFM(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setBFM(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setBFM(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+
+                        {/* TBW */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Total body water</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${tbw !== null && tbw !== 0 ? styles.focused : ''}`}
+                                    value={tbw !== null ? tbw.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setTBW(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(tbw === null) setTBW(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setTBW(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setTBW(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+                    </div>
+                    {/* 구분선 */}
+                    <div className={styles.divider}></div>
+
+
+
+
+
+                    <div className={styles['third-container']}>
+
+                        {/* FFM */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Fat-free mass</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${ffm !== null && ffm !== 0 ? styles.focused : ''}`}
+                                    value={ffm !== null ? ffm.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setFFM(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(ffm === null) setFFM(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setFFM(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setFFM(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+
+                        {/* Body protein */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Body protein</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${protein !== null && protein !== 0 ? styles.focused : ''}`}
+                                    value={protein !== null ? protein.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setProtein(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(protein === null) setProtein(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setProtein(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setProtein(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+
+                        {/* Body mineral */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Body mineral</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${mineral !== null && mineral !== 0 ? styles.focused : ''}`}
+                                    value={mineral !== null ? mineral.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setMineral(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(mineral === null) setMineral(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setMineral(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setMineral(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+                    </div>
 
                     {/* 구분선 */}
                     <div className={styles.divider}></div>
+
+
+
+
+
+                    <div className={styles['fourth-container']}>
+
+                        {/* WHR */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Waist-hip ratio</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${whr !== null && whr !== 0 ? styles.focused : ''}`}
+                                    value={whr !== null ? whr.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setWHR(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(whr === null) setWHR(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setWHR(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setWHR(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className={styles['page-button-container']}>

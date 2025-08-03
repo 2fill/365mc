@@ -160,8 +160,10 @@
 
 
 
-/* first container */
-.first-container {
+/* container */
+.first-container,
+.second-container,
+.third-container {
     display: flex;
     flex-direction: row;
     gap: 50px;
