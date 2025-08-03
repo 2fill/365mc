@@ -63,7 +63,7 @@ body {
 .order-box {
   position: absolute;
   left: 20px;
-  width: 270px;
+  width: 250px;
   height: 92%;
   background-color: #FFF3EB;
   border-top-left-radius: 20px;
@@ -71,8 +71,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 75px;
-  padding-left: 33px;
+  justify-content: center;
+  padding-left: 30px;
 }
 
 .order-item {
@@ -81,9 +81,17 @@ body {
   align-items: center;
   gap: 12px; /* 숫자 동그라미와 텍스트 사이 간격 */
   position: relative;
-  padding-bottom: 16px;
-  margin-bottom: 90px;
   max-width: 100%;
+}
+
+.order-item:not(:last-child) {
+  padding-bottom: 16px;
+  margin-bottom: 85px;
+}
+
+.order-item:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .circle-1,
@@ -123,8 +131,8 @@ body {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 20px;
-  top: 45px;
+  left: 18px;
+  top: 46px;
   width: 3px;
   height: 90px;
   background-color: #777777;
@@ -139,7 +147,7 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 160px;
+  justify-content: center;
   left: 350px;
 }
 
@@ -212,7 +220,7 @@ body {
   color: white;
 }
 
-.selected{
+.selected {
   background-color: #F36F20 !important;
   color: white !important;
 }
@@ -257,10 +265,9 @@ body {
 /* next-button-container */
 
 .next-button-container {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 460px;
-  padding-left: 80%;
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
 }
 
 .next-button {
@@ -278,4 +285,167 @@ body {
 
 .next-button:hover {
   color: white;
+}
+
+
+
+
+
+@media (max-width: 1200px) {
+  .form-box {
+    left: 310px;
+    transition: all 0.3s ease;
+  }
+}
+@media (max-width: 900px) {
+  .logo {
+    height: 50px;
+    transition: all 0.3s ease;
+  }
+
+  .Jibang-img-1 {
+    top: -50px;
+    width: 100px;
+    transition: all 0.3s ease;
+  }
+
+  .order-box {
+    width: 200px;
+    padding-left: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .order-item {
+    gap: 5px;
+  }
+
+  .order-item:not(:last-child)::after {
+    left: 16px;
+    transition: all 0.3s ease;
+    top: 40px;
+  }
+
+  .circle-1,
+  .circle-2,
+  .circle-3 {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  
+  .text-1,
+  .text-2,
+  .text-3 {
+    font-size: 16px;
+  }
+
+  .form-box {
+    left: 270px;
+    transition: all 0.3s ease;
+  }
+
+  .sex-label,
+  .age-label {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .sex-button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .sex-button-1,
+  .sex-button-2,
+  .age-textBox {
+    width: 100px;
+    height: 25px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .next-button-container {
+    padding-top: 480px;
+    right: 40px;
+    transition: all 0.3s ease;
+  }
+  
+  .next-button {
+    font-size: 16px;
+    width: 95px;
+    height: 35px;
+    transition: all 0.3s ease;
+  }
+}
+@media (max-width: 700px) {
+  .order-box {
+    width: 80px;
+    padding-left: 20px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+
+  .text-1,
+  .text-2,
+  .text-3 {
+    display: none;
+  }
+
+  .form-box {
+    left: 120px;
+  }
+}
+@media (max-width: 500px) {
+  .order-box {
+    left: 0;
+  }
+
+  .form-box {
+    left: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .sex-label,
+  .age-label {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .sex-button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .sex-button-1,
+  .sex-button-2,
+  .age-textBox {
+    width: 90px;
+    height: 25px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .next-button-container {
+    right: 20px;
+    transition: all 0.3s ease;
+  }
+}
+@media (max-height: 600px) {
+  .header {
+    padding: 20px 0 0 23px;
+    transition: all 0.1s ease;
+  }
+
+  .order-item:not(:last-child) {
+    padding-bottom: 5px;
+    margin-bottom: 65px;
+  }
+
+  .order-item:not(:last-child)::after {
+    height: 60px;
+  }
 }
