@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from './bodyComp.module.css';
 
@@ -15,6 +15,18 @@ export default function Page() {
     const router = useRouter();
 
     const [height, setHeight] = useState<number | null>(null);
+    const [weight, setWeight] = useState<number | null>(null);
+    const [bmi, setBmi] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (height && weight) {
+            const heightInMeters = height / 100;
+            const calculatedBmi = weight / (heightInMeters * heightInMeters);
+            setBmi(parseFloat(calculatedBmi.toFixed(1)));
+        } else {
+            
+        }
+    }, [height, weight]);
 
     return (
         <div className={styles.main}>
@@ -66,6 +78,43 @@ export default function Page() {
                                 />
                                 <button className={styles['plus-button']} onClick={() => setHeight(prev => (prev ?? 0) + 1)}>+</button>
                                 <button className={styles['minus-button']} onClick={() => setHeight(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+
+                        {/* Weight */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>Weight</div>
+                            <div className={styles['input-controls']}>
+                                <input
+                                    type="number"
+                                    className={`${styles['input-textBox']} ${weight !== null && weight !== 0 ? styles.focused : ''}`}
+                                    value={weight !== null ? weight.toString() : ""}
+                                    onChange={(e) => {
+                                        let value = e.target.value;
+                                        if(value.length > 3) value = value.slice(0, 3);
+                                        if(value.startsWith("0")) value = value.replace(/^0+/, "");
+                                        const num = parseInt(value);
+                                        setWeight(isNaN(num) ? null : num);
+                                    }}
+                                    onFocus={() => {
+                                        if(weight === null) setWeight(0);
+                                    }}
+                                />
+                                <button className={styles['plus-button']} onClick={() => setWeight(prev => (prev ?? 0) + 1)}>+</button>
+                                <button className={styles['minus-button']} onClick={() => setWeight(prev => (prev ?? 0) > 0 ? (prev ?? 0) - 1 : 0)}>-</button>
+                            </div>
+                        </div>
+
+                        {/* BMI */}
+                        <div className={styles['input-box']}>
+                            <div className={styles['input-label']}>BMI</div>
+                            <div className={styles['input-controls']}>
+                            <input
+                                type="text"
+                                className={styles['input-textBox']}
+                                value={bmi !== null ? bmi.toString() : ''}
+                                readOnly
+                            />
                             </div>
                         </div>
                     </div>

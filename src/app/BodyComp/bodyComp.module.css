@@ -158,102 +158,10 @@
 
 
 
-/* type-box & site-box */
-
-.type-box,
-.site-box,
-.edema-box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.type-label,
-.site-label,
-.edema-label {
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 10px;
-}
-
-.site-buttons {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px 15px;
-    width: 100%;
-}
-
-.type-button,
-.site-button,
-.edema-button {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.type-button-1,
-.type-button-2,
-.site-button,
-.edema-button-1,
-.edema-button-2,
-.edema-button-3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    border-radius: 20px;
-    border: none;
-    font-weight: 100;
-    background-color: #E9E3E0;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    color: rgba(0, 0, 0, 0.7);
-}
-
-.type-button-1,
-.type-button-2,
-.site-button,
-.edema-button-1,
-.edema-button-2 {
-    width: 110px;
-}
-
-.edema-button-3 {
-    width: 220px;
-}
-
-.type-button-1:hover,
-.type-button-2:hover,
-.site-button:hover,
-.edema-button-1:hover {
-    background-color: #F36F20;
-    color: white;
-}
-
-.selectedType,
-.selectedSite,
-.selectedEdema {
-    background-color: #F36F20 !important;
-    color: white !important;
-}
 
 
-
-/* 구분선 */
-.divider {
-    width: 100%;
-    height: 1px;
-    background-color: #E9E3E0;
-    margin: 20px 0;
-}
-
-
-
-
-
-/* text-box container */
-.textbox-container {
+/* first container */
+.first-container {
     display: flex;
     flex-direction: row;
     gap: 50px;
@@ -324,6 +232,17 @@
     color: white;
 }
 
+
+
+
+
+/* 구분선 */
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #E9E3E0;
+    margin: 20px 0;
+}
 
 
 
