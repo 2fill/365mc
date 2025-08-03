@@ -4,13 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from './bodyComp.module.css';
 
-const edemaOptions = [
-    { label: 'No edema', className: 'edema-button-1' },
-    { label: 'Mild edema', className: 'edema-button-2' },
-    { label: 'Moderate to severe edema', className: 'edema-button-3' },
-] as const;
-type EdemaType = typeof edemaOptions[number]['label'] | null;
-
 export default function Page() {
     const router = useRouter();
 
@@ -327,10 +320,12 @@ export default function Page() {
                 <div className={styles['page-button-container']}>
                     <button
                         className={styles['back-button']}
-                        onClick={() => router.push('/')}>
+                        onClick={() => router.push('/LipoInfo')}>
                         Back
                     </button>
-                    <button className={styles['complete-button']}>
+                    <button
+                        className={styles['complete-button']}
+                        onClick={() => router.push('/Result')}>
                         Complete
                     </button>
                 </div>
