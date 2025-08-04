@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    devIndicators : false
+    devIndicators: false,
+    appDir: true, 
 };
 
 export default nextConfig;
