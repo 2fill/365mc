@@ -42,7 +42,6 @@
 
 
 /* order-box */
-
 .order-box {
     position: absolute;
     left: 20px;
@@ -154,7 +153,6 @@
 
 
 /* type-box & site-box */
-
 .type-box,
 .site-box,
 .edema-box {
@@ -324,7 +322,6 @@
 
 
 /* page-button-container */
-
 .page-button-container {
     position: absolute;
     bottom: 30px;

@@ -63,7 +63,6 @@ body {
 
 
 /* order-box */
-
 .order-box {
   position: absolute;
   left: 20px;
@@ -158,7 +157,6 @@ body {
 
 
 /* sex-box */
-
 .sex-box,
 .age-box {
   display: flex;
@@ -242,7 +240,6 @@ body {
 
 
 /* age-box */
-
 .age-controls {
   display: flex;
   align-items: center;
@@ -267,7 +264,6 @@ body {
 
 
 /* next-button-container */
-
 .next-button-container {
   position: absolute;
   bottom: 30px;
@@ -302,11 +298,6 @@ body {
   }
 } */
 @media (max-width: 900px) {
-  .logo {
-    height: 50px;
-    transition: all 0.3s ease;
-  }
-
   .Jibang-img-1 {
     top: -50px;
     width: 100px;
@@ -477,11 +468,6 @@ body {
     height: 100vh;
   }
 
-  .logo {
-    width: 50vw;
-    max-width: 300px;
-    height: auto;
-  }
 
   .message {
     display: flex;
