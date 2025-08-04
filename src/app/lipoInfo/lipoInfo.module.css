@@ -1,20 +1,3 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica', Arial, sans-serif;
-} */
-
-/* html, body {
-    height: 100%;
-} */
-
-/* body {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(296.81deg, #F4E1D6 -47.61%, #F36F20 50%);
-} */
-
 .main-wrapper {
     flex: 1;
     display: flex;
