@@ -464,7 +464,7 @@ body {
     height: 60px;
   }
 }
-@media (max-height: 400px) {
+@media (max-height: 500px) {
   .main-box {
     display: none;
   }

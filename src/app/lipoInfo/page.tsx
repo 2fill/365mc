@@ -113,7 +113,6 @@ export default function Page() {
                     <div className={styles.divider}></div>
 
                     <div className={styles['textbox-container']}>
-
                         {/* Preoperative Size */}
                         <div className={styles['input-box']}>
                             <div className={styles['input-label']}>Preoperative size</div>
