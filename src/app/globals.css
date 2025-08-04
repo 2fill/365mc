@@ -295,12 +295,12 @@ body {
 
 
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .form-box {
     left: 310px;
     transition: all 0.3s ease;
   }
-}
+} */
 @media (max-width: 900px) {
   .logo {
     height: 50px;
@@ -308,8 +308,8 @@ body {
   }
 
   .Jibang-img-1 {
-    top: -60px;
-    width: 130px;
+    top: -50px;
+    width: 100px;
     transition: all 0.3s ease;
   }
 
@@ -321,6 +321,7 @@ body {
 
   .order-item {
     gap: 5px;
+    transition: all 0.3s ease;
   }
 
   .order-item:not(:last-child)::after {
@@ -335,12 +336,14 @@ body {
     width: 35px;
     height: 35px;
     font-size: 18px;
+    transition: all 0.3s ease;
   }
   
   .text-1,
   .text-2,
   .text-3 {
     font-size: 16px;
+    transition: all 0.3s ease;
   }
 
   .form-box {
@@ -365,6 +368,14 @@ body {
   .sex-button-2,
   .age-textBox {
     width: 100px;
+    height: 25px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .plus-button,
+  .minus-button {
+    width: 25px;
     height: 25px;
     font-size: 14px;
     transition: all 0.3s ease;

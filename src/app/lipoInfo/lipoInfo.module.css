@@ -381,17 +381,6 @@
 
 
 @media (max-width: 1200px) {
-    .logo {
-        height: 50px;
-        transition: all 0.3s ease;
-    }
-
-    .Jibang-img-1 {
-        top: -60px;
-        width: 130px;
-        transition: all 0.3s ease;
-    }
-
     .order-box {
         width: 200px;
         padding-left: 20px;
@@ -516,11 +505,6 @@
     }
 } 
 @media (max-width: 700px) {
-    .header {
-        padding: 20px 0 0 23px;
-        transition: all 0.1s ease;
-    }
-
     .order-box {
         left: 0;
     }
