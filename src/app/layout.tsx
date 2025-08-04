@@ -12,6 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <header className="header">
           <img src="/Logo.png" alt="Logo" className="logo" />
+          <p className="message shimmer">* 화면 크기를 키워주세요.</p>
         </header>
         <main className="main-wrapper">
           {children}
