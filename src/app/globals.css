@@ -259,6 +259,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 
@@ -291,12 +292,6 @@ body {
 
 
 
-/* @media (max-width: 1200px) {
-  .form-box {
-    left: 310px;
-    transition: all 0.3s ease;
-  }
-} */
 @media (max-width: 900px) {
   .Jibang-img-1 {
     top: -50px;
