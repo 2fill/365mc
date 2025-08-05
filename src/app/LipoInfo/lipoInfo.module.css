@@ -638,8 +638,8 @@
     .site-label,
     .input-label,
     .edema-label {
-        font-size: 14px;
-        margin-bottom: 5px;
+        font-size: 13px;
+        margin-bottom: 3px;
         transition: all 0.3s ease;
     }
 
@@ -678,13 +678,19 @@
 
     .back-button,
     .next-button {
-        font-size: 14px;
-        width: 90px;
-        height: 30px;
+        font-size: 13px;
+        width: 70px;
+        height: 25px;
         transition: all 0.3s ease;
     }
+
+    .back-button {
+        margin-right: 5px;
+        transition: all 0.3s ease;
+    }
+
     .divider {
-        margin: 10px 0;
+        margin: 7px 0;
     }
 }
 @media(max-height: 500px) {
