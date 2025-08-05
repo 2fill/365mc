@@ -404,6 +404,11 @@ body {
   }
 }
 @media (max-width: 500px) {
+  .logo {
+    height: 50px;
+    transition: all 0.3s ease;
+  }
+  
   .order-box {
     left: 0;
   }
@@ -441,9 +446,9 @@ body {
   }
 }
 @media (max-height: 600px) {
-  .header {
-    padding: 20px 0 0 23px;
-    transition: all 0.1s ease;
+  .logo {
+    height: 50px;
+    transition: all 0.3s ease;
   }
 
   .order-item:not(:last-child) {
