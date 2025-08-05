@@ -1,33 +1,7 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica', Arial, sans-serif;
-} */
-
-/* html, body {
-    height: 100%;
-} */
-
-/* body {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(296.81deg, #F4E1D6 -47.61%, #F36F20 50%);
-} */
-
 .main-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
-}
-
-.header {
-    padding: 35px 0 0 43px;
-}
-
-.logo {
-    height: 66px;
-    margin-bottom: -30px;
 }
 
 .main {
@@ -106,6 +80,8 @@
 }
 
 .back-button {
+    width: 185px;
+    height: 50px;
     padding: 15px 35px;
     border: none;
     background-color: #F36F20;
@@ -122,9 +98,97 @@
 
 .Jibang-img-2 {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 20px;
+    right: 30px;
     width: 200px;
     z-index: 0;
     pointer-events: none;
+}
+
+
+
+
+
+@media (max-width: 950px) {
+    .Jibang-img-2 {
+        right: 10px;
+        width: 160px;
+        transition: all 0.3s ease;
+    }
+}
+@media (max-width: 700px) {
+    .check-icon {
+        width: 45px;
+        transition: all 0.3s ease;
+    }
+    
+    .completeText {
+        font-size: 28px;
+        transition: all 0.3s ease;
+    }
+
+    .weight-box,
+    .size-box {
+        height: 60px;
+        width: 260px;
+        padding: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .result-label,
+    .result-value {
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+    .result-value {
+        height: 40px;
+        width: 140px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .back-button {
+        padding: 10px 30px;
+        font-size: 16px;
+        width: 160px;
+        height: 45px;
+        transition: all 0.3s ease;
+    }
+
+    .Jibang-img-2 {
+        width: 130px;
+        transition: all 0.3s ease;
+    }
+}
+@media (max-height: 750px) {
+    .check-icon {
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .completeText {
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .result-box {
+        gap: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .page-button-container {
+        margin-top: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .Jibang-img-2 {
+        width: 90px;
+        transition: all 0.3s ease;
+    }
+}
+@media (max-height: 500px) {
+    .main-box {
+        display: none;
+    }
 }
