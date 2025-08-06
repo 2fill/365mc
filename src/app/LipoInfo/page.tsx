@@ -29,9 +29,22 @@ export default function Page() {
 
     const [preopSize, setPreopSize] = useState<number | null>(null);
     const [fatVolume, setFatVolume] = useState<number | null>(null);
+    const liposuctionSites = ['Abdomen', 'Arms', 'Backs', 'Buttocks', 'Calves', 'Flanks', 'Thighs'];
 
     const handleNextClick = () => {
-        if(selectedEdema){
+        if(selectedType && selectedSite && selectedEdema){
+            const savedData = localStorage.getItem("inputData");
+            const parsedData = savedData ? JSON.parse(savedData) : {};  
+
+            const newInputData = {
+                ...parsedData,
+                "Liposuction type": selectedType === "Lams" ? 0 : 1,
+                "Liposuction site": liposuctionSites.indexOf(selectedSite),
+                Size: preopSize ?? 0,
+                "Fat volume": fatVolume ?? 0,
+                Edema: edemaOptions.findIndex(opt => opt.label === selectedEdema), 
+            };
+            localStorage.setItem("inputData", JSON.stringify(newInputData));
             router.push("/BodyComp");
         }
         else{

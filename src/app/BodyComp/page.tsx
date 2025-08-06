@@ -28,6 +28,28 @@ export default function Page() {
         }
     }, [height, weight]);
 
+    const handleCompleteClick = () => {
+        const savedData = localStorage.getItem("inputData");
+        const parsedData = savedData ? JSON.parse(savedData) : {};
+
+        const newInputData = {
+            ...parsedData,
+            Height: height ?? 0,
+            Weight: weight ?? 0,
+            BMI: bmi ?? 0,
+            SMM: smm ?? 0,
+            BFM: bfm ?? 0,
+            TBW: tbw ?? 0,
+            FFM: ffm ?? 0,
+            "Body protein": protein ?? 0,
+            "Body mineral": mineral ?? 0,
+            WHR: whr ?? 0,
+        };
+
+        localStorage.setItem("inputData", JSON.stringify(newInputData));
+        router.push("/Result");
+    };
+
     return (
         <div className={styles.main}>
             <div className={styles['main-box']}>
@@ -292,7 +314,7 @@ export default function Page() {
                     </button>
                     <button
                         className={styles['complete-button']}
-                        onClick={() => router.push('/Result')}>
+                        onClick={handleCompleteClick}>
                         Complete
                     </button>
                 </div>

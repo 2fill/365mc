@@ -1,10 +1,73 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from './result.module.css';
 
+type PredictionResult = {
+    postoperativeWeight: number;
+    postoperativeSize: number;
+};
+
 export default function Page() {
     const router = useRouter();
+    const [result, setResult] = useState<PredictionResult | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchPrediction = async () => {
+            try {
+                const inputDataString = localStorage.getItem("inputData");
+                if (!inputDataString) {
+                    setError("No input data found.");
+                    setLoading(false);
+                    return;
+                }
+    
+                const inputData = JSON.parse(inputDataString);
+    
+                // 백엔드 API 주소
+                const res = await fetch("http://52.79.32.5:5000/predict", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(inputData),
+                });
+    
+                if (!res.ok) {
+                    throw new Error("Prediction API 호출 실패");
+                }
+        
+                const data = await res.json();
+        
+                setResult({
+                    postoperativeWeight: data.postoperativeWeight,
+                    postoperativeSize: data.postoperativeSize,
+                    });
+            }
+            catch (err: any) {
+                setError(err.message || "알 수 없는 오류 발생");
+            }
+            finally {
+                setLoading(false);
+            }
+        };
+    
+        fetchPrediction();
+    }, []);
+    
+    if (loading) {
+        return <div className={styles.main}>Loading...</div>;
+    }
+    
+    if (error) {
+        return (
+            <div className={styles.main}>
+                <p>Error: {error}</p>
+                <button onClick={() => router.push("/")}>Back to Start</button>
+            </div>
+        );
+    }
 
     return (
         <div className={styles.main}>
@@ -19,11 +82,15 @@ export default function Page() {
                     <div className={styles['result-box']}>
                         <div className={styles['weight-box']}>
                             <span className={styles['result-label']}>Postoperative weight</span>
-                            <label className={styles['result-value']}>65</label>
+                            <label className={styles['result-value']}>
+                                {result?.postoperativeWeight ?? "-"}
+                            </label>
                         </div>
                         <div className={styles['size-box']}>
                             <span className={styles['result-label']}>Postoperative size</span>
-                            <label className={styles['result-value']}>90</label>
+                            <label className={styles['result-value']}>
+                                {result?.postoperativeSize ?? "-"}
+                            </label>
                         </div>
                     </div>
 

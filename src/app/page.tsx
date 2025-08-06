@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import type { InputData } from '@/lib/api';
+
+
 
 export default function Page() {
   const router = useRouter();
@@ -30,8 +33,16 @@ export default function Page() {
     });
   };
 
+  const [inputData, setInputData] = useState<Partial<InputData>>({});
   const handleNextClick = () => {
     if(selected && age !== null && age > 0){
+      const newInputData = {
+        ...inputData,
+        Sex: selected === "male" ? 1 : 2,
+        Age: age,
+      };
+      setInputData(newInputData);
+
       router.push("/LipoInfo");
     }
     else{
