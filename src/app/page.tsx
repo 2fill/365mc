@@ -42,6 +42,7 @@ export default function Page() {
         Age: age,
       };
       setInputData(newInputData);
+      localStorage.setItem("inputData", JSON.stringify(newInputData));
 
       router.push("/LipoInfo");
     }
