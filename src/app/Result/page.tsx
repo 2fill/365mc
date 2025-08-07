@@ -87,13 +87,17 @@ export default function Page() {
                         <div className={styles['weight-box']}>
                             <span className={styles['result-label']}>Postoperative weight</span>
                             <label className={styles['result-value']}>
-                                {result?.postoperativeWeight ?? "-"}
+                                {result?.postoperativeWeight !== undefined
+                                ? result.postoperativeWeight.toFixed(2)
+                                : "-"}
                             </label>
                         </div>
                         <div className={styles['size-box']}>
                             <span className={styles['result-label']}>Postoperative size</span>
                             <label className={styles['result-value']}>
-                                {result?.postoperativeSize ?? "-"}
+                                {result?.postoperativeSize !== undefined
+                                ? result.postoperativeSize.toFixed(2)
+                                : "-"}
                             </label>
                         </div>
                     </div>

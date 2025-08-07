@@ -1,4 +1,5 @@
 import './globals.css';
+import Link from 'next/link';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +12,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <header className="header">
-          <img src="/Logo.png" alt="Logo" className="logo" />
+          <Link href="/">
+            <img src="/Logo.png" alt="Logo" className="logo" />
+          </Link>
           <p className="message shimmer">* Please enlarge your screen.</p>
         </header>
         <main className="main-wrapper">
