@@ -45,8 +45,12 @@ export default function Page() {
                     postoperativeSize: data.postoperativeSize,
                     });
             }
-            catch (err: any) {
-                setError(err.message || "알 수 없는 오류 발생");
+            catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err.message);
+                } else {
+                    setError("오류 발생");
+                }
             }
             finally {
                 setLoading(false);
