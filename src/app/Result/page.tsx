@@ -28,7 +28,7 @@ export default function Page() {
                 const inputData = JSON.parse(inputDataString);
     
                 // 백엔드 API 주소
-                const res = await fetch("http://163.180.82.60:5000/predict", {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/predict`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(inputData),
