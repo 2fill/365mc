@@ -43,7 +43,7 @@ export default function Page() {
                 setResult({
                     postoperativeWeight: data.postoperativeWeight,
                     postoperativeSize: data.postoperativeSize,
-                    });
+                });
             }
             catch (err: unknown) {
                 if (err instanceof Error) {
