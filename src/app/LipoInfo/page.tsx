@@ -59,7 +59,7 @@ export default function Page() {
 
                 <div className={styles['order-box']}>
                 <div className={styles['order-item']}>
-                    <div className={styles['circle-1']}>✔</div>
+                    <div className={styles['circle-1']}></div>
                     <div className={styles['text-1']}>Demographics</div>
                 </div>
                 <div className={styles['order-item']}>
