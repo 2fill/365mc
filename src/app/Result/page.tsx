@@ -26,7 +26,7 @@ export default function Page() {
                 }
     
                 const inputData = JSON.parse(inputDataString);
-                const API_BASE = "https://098182be3bc4.ngrok-free.app";
+                const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
                 const res = await fetch(`${API_BASE}/predict`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
