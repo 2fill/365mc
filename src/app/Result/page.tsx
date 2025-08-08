@@ -60,7 +60,12 @@ export default function Page() {
     }, []);
     
     if (loading) {
-        return <div className={styles.main}>Loading...</div>;
+        return (
+            <div className={styles['loading-container']}>
+                <div className={styles.spinner}></div>
+                <div>Loading...</div>
+            </div>
+        );
     }
     
     if (error) {
