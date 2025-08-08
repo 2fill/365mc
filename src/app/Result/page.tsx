@@ -26,10 +26,8 @@ export default function Page() {
                 }
     
                 const inputData = JSON.parse(inputDataString);
-    
-                // 백엔드 API 주소
-                console.log("API BASE URL:", process.env.NEXT_PUBLIC_API_BASE);
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/predict`, {
+                const API_BASE = "https://098182be3bc4.ngrok-free.app";
+                const res = await fetch(`${API_BASE}/predict`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(inputData),
