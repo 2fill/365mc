@@ -47,7 +47,7 @@ export default function Page() {
       router.push("/LipoInfo");
     }
     else{
-      alert("Please fill in the required fields.");
+      alert("⚠ Please fill in *all fields* with valid values.");
     }
   }
 

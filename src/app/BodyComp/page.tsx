@@ -29,25 +29,41 @@ export default function Page() {
     }, [height, weight]);
 
     const handleCompleteClick = () => {
-        const savedData = localStorage.getItem("inputData");
-        const parsedData = savedData ? JSON.parse(savedData) : {};
+        if(
+            height !== null && height > 0 &&
+            weight !== null && weight > 0 &&
+            bmi !== null && bmi > 0 &&
+            smm !== null && smm > 0 &&
+            bfm !== null && bfm > 0 &&
+            tbw !== null && tbw > 0 &&
+            ffm !== null && ffm > 0 &&
+            protein !== null && protein > 0 &&
+            mineral !== null && mineral > 0 &&
+            whr !== null && whr > 0
+        ){
+            const savedData = localStorage.getItem("inputData");
+            const parsedData = savedData ? JSON.parse(savedData) : {};
 
-        const newInputData = {
-            ...parsedData,
-            Height: height ?? 0,
-            Weight: weight ?? 0,
-            BMI: bmi ?? 0,
-            SMM: smm ?? 0,
-            BFM: bfm ?? 0,
-            TBW: tbw ?? 0,
-            FFM: ffm ?? 0,
-            "Body protein": protein ?? 0,
-            "Body mineral": mineral ?? 0,
-            WHR: whr ?? 0,
-        };
+            const newInputData = {
+                ...parsedData,
+                Height: height ?? 0,
+                Weight: weight ?? 0,
+                BMI: bmi ?? 0,
+                SMM: smm ?? 0,
+                BFM: bfm ?? 0,
+                TBW: tbw ?? 0,
+                FFM: ffm ?? 0,
+                "Body protein": protein ?? 0,
+                "Body mineral": mineral ?? 0,
+                WHR: whr ?? 0,
+            };
 
-        localStorage.setItem("inputData", JSON.stringify(newInputData));
-        router.push("/Result");
+            localStorage.setItem("inputData", JSON.stringify(newInputData));
+            router.push("/Result");
+        }
+        else {
+            alert("⚠ Please fill in *all fields* with valid values.");
+        }
     };
 
     return (

@@ -32,7 +32,13 @@ export default function Page() {
     const liposuctionSites = ['Abdomen', 'Arms', 'Backs', 'Buttocks', 'Calves', 'Flanks', 'Thighs'];
 
     const handleNextClick = () => {
-        if(selectedType && selectedSite && selectedEdema){
+        if(
+            selectedType &&
+            selectedSite &&
+            selectedEdema &&
+            preopSize !== null && preopSize > 0 &&
+            fatVolume !== null && fatVolume > 0
+        ){
             const savedData = localStorage.getItem("inputData");
             const parsedData = savedData ? JSON.parse(savedData) : {};  
 
@@ -48,7 +54,7 @@ export default function Page() {
             router.push("/BodyComp");
         }
         else{
-            alert("Please fill in the required fields.");
+            alert("⚠ Please fill in *all fields* with valid values.");
         }
     }
 
