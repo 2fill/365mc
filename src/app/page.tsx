@@ -113,7 +113,7 @@ export default function Page() {
                   value = value.slice(0, 3);
                 }
                 
-                // 0으로 시작하면, 0 제거
+                // 0으로 시작하면, 0제거
                 if (value.startsWith("0")) {
                   value = value.replace(/^0+/, "");
                 }
