@@ -120,7 +120,7 @@ export default function Page() {
                 
                 // 문자를 숫자로 다시 변경 
                 const num = parseInt(value);
-                // 숫자 유효하면 저장 
+                // 숫자 유효하면 저장
                 setAge(isNaN(num) ? null : num);
               }}
 
