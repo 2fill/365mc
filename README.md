@@ -1,2 +1,2 @@
 # 365mc
-365mc prediction web
+365mc CDSS (TypeScript version)
